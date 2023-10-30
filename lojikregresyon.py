@@ -25,7 +25,7 @@ sc=StandardScaler()
 X_train=sc.fit_transform(x_train)
 X_test=sc.transform(x_test)
 
-#LOGİSTİC REGRESSİON
+#LOGISTIC REGRESSION
 from sklearn.linear_model import LogisticRegression
 logr=LogisticRegression(random_state=0)
 logr.fit(X_train,y_train)
@@ -34,12 +34,12 @@ y_pred=logr.predict(X_test)
 print(y_pred)
 print(y_test)
 
-#CONFUSSİON MATRİX
+#CONFUSSION MATRIX
 from sklearn.metrics import confusion_matrix
 cm=confusion_matrix(y_test, y_pred)
 print(cm)
 
-#K-NEAREST NEİGHBORHOOD
+#K-NEAREST NEIGHBORHOOD
 from sklearn.neighbors import KNeighborsClassifier
 knn=KNeighborsClassifier(n_neighbors=5,metric='minkowski')
 #n_neighbors değeri komşu sayısıdır , veri kümesine göre değişir.
@@ -49,7 +49,7 @@ y_pred=knn.predict(X_test)
 cm=confusion_matrix(y_test, y_pred)
 print(cm)
 
-#SUPPORT VECTOR MACHİNE
+#SUPPORT VECTOR MACHINE
 from sklearn.svm import SVC
 svc=SVC(kernel='linear')
 #kernel değiştirilebilir
@@ -60,7 +60,7 @@ cm=confusion_matrix(y_test, y_pred)
 print(cm)
 
 
-#GAUSSİAN NAİVE BAYES
+#GAUSSIAN NAIVE BAYES
 from sklearn.naive_bayes import GaussianNB
 gnb = GaussianNB()
 gnb.fit(X_train,y_train)
@@ -69,7 +69,7 @@ y_pred=gnb.predict(X_test)
 cm=confusion_matrix(y_test, y_pred)
 print(cm)
 
-#DECİSİON TREE CLASSİFİER
+#DECISION TREE CLASSIFIER
 from sklearn.tree import DecisionTreeClassifier
 dtc=DecisionTreeClassifier(criterion='entropy')
 #entropy'e göre hesaplandı , farklı şekilde de hesaplanabilir
@@ -79,7 +79,7 @@ y_pred=dtc.predict(X_test)
 cm=confusion_matrix(y_test, y_pred)
 print(cm)
 
-#RANDOM FOREST CLASSİFİER
+#RANDOM FOREST CLASSIFIER
 from sklearn.ensemble import RandomForestClassifier
 rfc=RandomForestClassifier(n_estimators=10,criterion='entropy')
 rfc.fit(X_train,y_train)
